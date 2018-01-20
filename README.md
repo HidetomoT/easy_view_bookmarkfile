@@ -1,6 +1,7 @@
-# README
+README
+------
 
-### NAME
+#### NAME
     easy_view_bookmarkfile.scm
 
 #### SYNOPSIS
@@ -15,7 +16,7 @@
 #### VERSION
     0.9.0
 
-### REQUIREMENT
+#### REQUIREMENT
     Gauche (an implementation of the Scheme programming language)
         https://practical-scheme.net/gauche/index.html
 
