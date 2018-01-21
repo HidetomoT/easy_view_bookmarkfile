@@ -20,6 +20,8 @@ README
     Gauche (an implementation of the Scheme programming language)
         https://practical-scheme.net/gauche/index.html
 
+      Gauche also runs on Windows with MinGW.
+      UNIX commands can run on MinGW.
 
 #### LICENSE 
     Copyright (c) 2018 Hidetomo Tanaka
