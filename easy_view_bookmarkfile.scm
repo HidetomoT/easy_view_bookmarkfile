@@ -34,7 +34,8 @@
 (define output_filename '() )
 (define output_port '() )
 (define folder_depth 0 )
-(define DD_flg #f )
+(define DD_flag #f )
+(define DoNotEdit_flag #f )
 
 
 (define (write_1line line_str)
@@ -107,15 +108,14 @@
 					    "######" depth_str "</H3>"))
 	      (set! line_str (regexp-replace #/<\/H3>/i  line_str  repl_str) )
 	      )
-	;; Add </p> after </H3>.
-	(if (rxmatch #/<\/DT>/i  line_str)
+	;; Add </DT> after </H3>.
+	(if (not (rxmatch #/<\/DT>/i  line_str) )
 	    (begin
-	      (set! line_str (regexp-replace #/<\/DT>/i  line_str  "</DT></p>") )
-	      )
-	    (begin
-	      (set! line_str (regexp-replace #/<\/H3>/i  line_str  "</H3></p>") )
+	      (set! line_str (regexp-replace #/<\/H3>/i  line_str  "</H3></DT>") )
 	      )
 	    )
+	;; Add </p> after </DT>.
+	(set! line_str (regexp-replace #/<\/DT>/i  line_str  "</DT></p>") )
 	;; Write the modified line to the output file.
 	(write_1line line_str)
 	;; Return true
@@ -165,8 +165,8 @@
 	;; Since the line of <DD> is deleted,
 	;;  it is not written to the output file.
 
-	;; Set DD_flg.
-	(set! DD_flg  #t)
+	;; Set DD_flag.
+	(set! DD_flag  #t)
 	;; Return true
 	#t
 	)
@@ -175,7 +175,7 @@
 
 
 (define (modify_DD_tag_2nd line_str)
-  (if (not DD_flg)
+  (if (not DD_flag)
       (begin
 	;; If it is not in the process of <DD>
 	#f
@@ -198,10 +198,87 @@
 	      ;; Since the line of the next HTML tag has started, 
 	      ;; This line is processed by a subsequent program.
 	      
-	      ;; Clear DD_flg
-	      (set! DD_flg  #f)
+	      ;; Clear DD_flag
+	      (set! DD_flag  #f)
 	      ;; Return false
 	      #f
+	      )
+	    )
+	)
+      )
+)
+
+
+
+(define (modify_DOCTYPE_comment line_str)
+   ;; judgement whether it is a line of <!DOCTYPE
+   (if (not (rxmatch #/^ *<!DOCTYPE +/i  line_str) )
+      (begin
+	;; If it is a mismatched line, return false.
+	#f
+	)
+      (begin
+	;; set DOCTYPE 'DTD HTML 4.01'
+	(set! line_str 
+	      "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">" )
+
+	;; Write the modified line to the output file.
+	(write_1line line_str)
+	;; Return true
+	#t
+	)
+      )
+)
+
+
+
+(define (modify_DoNotEdit_comment_1st line_str)
+   ;; judgement whether it is beginning of DoNotEdit comment
+   (if (not (rxmatch #/<!-- *This +is +an +automatically +generated +file/i  line_str) )
+      (begin
+	;; If it is a mismatched line, return false.
+	#f
+	)
+      (begin
+	;; Since the line of DoNotEdit comment is deleted,
+	;;  it is not written to the output file.
+
+	;; Set DoNotEdit_flag.
+	(set! DoNotEdit_flag  #t)
+	;; Return true
+	#t
+	)
+      )
+)
+
+
+(define (modify_DoNotEdit_comment_2nd line_str)
+  (if (not DoNotEdit_flag)
+      (begin
+	;; If it is not in the process of DoNotEdit comment
+	#f
+	)
+      (begin
+	;; If processing of DoNotEdit comment is in progress
+
+        ;; judgement whether it is end of DoNotEdit comment
+	(if (not (rxmatch #/Do +Not +Edit! *-->/i  line_str) )
+	    (begin
+	      ;; If it is a mismatched line,
+	      ;;  delete the line, assuming that line is 
+	      ;;   middle of DoNotEdit comment.
+	      ;; So do not write to the output file.
+	      
+	      ;; Return true
+	      #t
+	      )
+	    (begin
+	      ;; This line is end of DoNotEdit comment.
+	      
+	      ;; Clear DoNotEdit_flag
+	      (set! DoNotEdit_flag  #f)
+	      ;; Return true
+	      #t
 	      )
 	    )
 	)
@@ -219,6 +296,9 @@
    ( (modify_DT_H3_str  line_str) #t )
    ( (modify_DT_A_HREF_str  line_str) #t )
    ( (modify_DD_tag_1st  line_str) #t )
+   ( (modify_DOCTYPE_comment  line_str) #t )
+   ( (modify_DoNotEdit_comment_2nd  line_str) #t )
+   ( (modify_DoNotEdit_comment_1st  line_str) #t )
    ( else
      ;; Write the read line to the output file without change.
      (write_1line line_str)
@@ -231,7 +311,8 @@
 
 (define (read_bookmark_file)
   (set! folder_depth 0 )
-  (set! DD_flg  #f)
+  (set! DD_flag  #f)
+  (set! DoNotEdit_flag  #f)
 
   (let read_loop ((line_str (read-line input_port)))
     (when (not (eof-object? line_str))
