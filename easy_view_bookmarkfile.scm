@@ -10,6 +10,9 @@
 ;;      Some web browsers export bookmark HTML file.
 ;;      Its file can be displayed by web browser.
 ;;      This program changes bookmark file to be easy to view.
+;;      This program is script file. 
+;;      You need to add execute permission to the file.
+;;      The number of arguments is one.
 ;;      The output file name is generated automatically.
 ;; 
 ;;  VERSION
