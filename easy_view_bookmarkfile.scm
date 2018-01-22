@@ -119,6 +119,12 @@
 	    )
 	;; Add </p> after </DT>.
 	(set! line_str (regexp-replace #/<\/DT>/i  line_str  "</DT></p>") )
+	;; Delete ADD_DATE=...
+	(set! line_str (regexp-replace #/ +ADD_DATE *= *\".*\"/i
+				       line_str  "") )
+	;; Delete LAST_MODIFIED=...
+	(set! line_str (regexp-replace #/ +LAST_MODIFIED *= *\".*\"/i
+				       line_str  "") )
 	;; Write the modified line to the output file.
 	(write_1line line_str)
 	;; Return true
@@ -147,6 +153,15 @@
 				       line_str  "") )
 	;; Delete ICON=...
 	(set! line_str (regexp-replace #/ +ICON *= *\".*\"/i  line_str  "") )
+	;; Delete ADD_DATE=...
+	(set! line_str (regexp-replace #/ +ADD_DATE *= *\".*\"/i
+				       line_str  "") )
+	;; Delete LAST_MODIFIED=...
+	(set! line_str (regexp-replace #/ +LAST_MODIFIED *= *\".*\"/i
+				       line_str  "") )
+	;; Delete LAST_VISIT=...
+	(set! line_str (regexp-replace #/ +LAST_VISIT *= *\".*\"/i
+				       line_str  "") )
 	;; Write the modified line to the output file.
 	(write_1line line_str)
 	;; Return true
@@ -293,6 +308,7 @@
 (define (procedure_one_line line_str)
 
   (cond
+   ( (modify_DoNotEdit_comment_2nd  line_str) #t )
    ( (modify_DD_tag_2nd  line_str) #t )
    ( (modify_DL_tag  line_str) #t )
    ( (modify_end_DL_tag  line_str) #t )
@@ -300,7 +316,6 @@
    ( (modify_DT_A_HREF_str  line_str) #t )
    ( (modify_DD_tag_1st  line_str) #t )
    ( (modify_DOCTYPE_comment  line_str) #t )
-   ( (modify_DoNotEdit_comment_2nd  line_str) #t )
    ( (modify_DoNotEdit_comment_1st  line_str) #t )
    ( else
      ;; Write the read line to the output file without change.
