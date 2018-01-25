@@ -84,6 +84,17 @@
 	(set! folder_depth (- folder_depth 1))
 	;; Write the modified line to the output file.
 	(write_1line line_str)
+
+	;; Write the mark of folder end to the output file.
+	(if (>= folder_depth 1) 
+	    (let ( (depth_str (number->string folder_depth))
+		   (indentation_str ((rxmatch #/^[\x20\x09]*/i line_str)) )
+		   )
+	      (set! line_str (string-append indentation_str
+					    "%%%%%%" depth_str) )
+	      (write_1line line_str)
+	      )
+	    )
 	;; Return true
 	#t
 	)
