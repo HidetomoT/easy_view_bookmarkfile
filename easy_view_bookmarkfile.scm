@@ -10,10 +10,12 @@
 ;;      Some web browsers export bookmark HTML file.
 ;;      Its file can be displayed by web browser.
 ;;      This program changes bookmark file to be easy to view.
-;;      This program is script file. 
-;;      You need to add execute permission to the file.
+;;      This program is a script file. 
+;;      if OS is Linux, you need to add execute permission to the file.
 ;;      The number of arguments is one.
 ;;      The output file name is generated automatically.
+;;      if OS is Windows, enter the command as follows:
+;;              gosh  easy_view_bookmarkfile.scm  input-bookmark-html-file
 ;; 
 ;;  VERSION
 ;;      0.9.0
@@ -23,7 +25,7 @@
 ;;          https://practical-scheme.net/gauche/index.html
 ;;
 ;;        Gauche also runs on Windows with MinGW.
-;;        UNIX commands can run on MinGW.
+;;        Gauche runs using MinGW.
 ;; 
 ;; 
 ;;  LICENSE 
@@ -88,7 +90,7 @@
 	;; Write the mark of folder end to the output file.
 	(if (>= folder_depth 1) 
 	    (let ( (depth_str (number->string folder_depth))
-		   (indentation_str ((rxmatch #/^[\x20\x09]*/i line_str)) )
+		   (indentation_str ((rxmatch #/^\s*/i line_str)) )
 		   )
 	      (set! line_str (string-append indentation_str
 					    "%%%%%%" depth_str) )
