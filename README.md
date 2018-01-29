@@ -15,7 +15,8 @@ README
     if OS is Linux, you need to add execute permission to the file.
     The number of arguments is one.
     The output file name is generated automatically.
-    if OS is Windows, enter the command as follows:
+    if OS is Windows, launch the Command Prompt,
+    and enter the command as follows:
             gosh  easy_view_bookmarkfile.scm  input-bookmark-html-file
 
 #### VERSION

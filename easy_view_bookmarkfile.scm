@@ -14,7 +14,8 @@
 ;;      if OS is Linux, you need to add execute permission to the file.
 ;;      The number of arguments is one.
 ;;      The output file name is generated automatically.
-;;      if OS is Windows, enter the command as follows:
+;;      if OS is Windows, launch the Command Prompt,
+;;      and enter the command as follows:
 ;;              gosh  easy_view_bookmarkfile.scm  input-bookmark-html-file
 ;; 
 ;;  VERSION
@@ -41,11 +42,25 @@
 (define folder_depth 0 )
 (define DD_flag #f )
 (define DoNotEdit_flag #f )
+(define windows_flag #f )
+
+
+
+(define (my_newline port)
+  (if windows_flag
+      (begin
+	(display "\x0d\x0a" port)
+	)
+      (begin
+	(display "\x0a" port)
+	)
+      )
+  )
 
 
 (define (write_1line line_str)
   (display line_str output_port)
-  (newline output_port)
+  (my_newline output_port)
   )
 
 
@@ -336,7 +351,7 @@
      #t
      )
    )
-  
+
   )
 
 
@@ -398,11 +413,24 @@
   )
 
 
+
 (define (main args)
+
+  (cond-expand
+   [gauche.os.windows
+    (set! windows_flag #t)
+    ]
+   [else
+    (set! windows_flag #f)
+    ]
+  )
+
   (if (or (null? (cdr args)) (length>? args 2) )
       (print_usage )
       )
-  
+
   (change_bookmark_easy_read (list-ref args 1) )
 )
+
+
 
