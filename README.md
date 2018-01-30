@@ -18,6 +18,8 @@ README
     if OS is Windows, launch the Command Prompt,
     and enter the command as follows:
             gosh  easy_view_bookmarkfile.scm  input-bookmark-html-file
+    if OS is Windows10, please check the method of 
+    launch the Command Prompt by the internet.
 
 #### VERSION
     0.9.0
