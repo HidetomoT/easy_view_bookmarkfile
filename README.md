@@ -42,4 +42,6 @@ README
 
 &nbsp;&nbsp;&nbsp;&nbsp;[easy_view_bookmarkfile.scm](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/easy_view_bookmarkfile.scm "easy_view_bookmarkfile.scm")<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[README.md](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/README.md "README.md")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[bookmarks_example_before.html](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/Example_before_after/bookmarks_example_before.html "bookmarks_example_before.html")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[bookmarks_example_after.html](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/Example_before_after/bookmarks_example_after.html "bookmarks_example_after.html")<br>
 
