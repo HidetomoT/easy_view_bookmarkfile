@@ -37,7 +37,7 @@ README
     http://opensource.org/licenses/mit-license.php
 
 
-#### HOW TO DOWNLOAD PROGRAM
+#### HOW TO DOWNLOAD THE PROGRAM
     right click the link below, select "save link as file".
 
 &nbsp;&nbsp;&nbsp;&nbsp;[easy_view_bookmarkfile.scm](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/easy_view_bookmarkfile.scm "easy_view_bookmarkfile.scm")<br>
