@@ -40,6 +40,6 @@ README
 #### HOW TO DOWNLOAD PROGRAM
     right click the link below, select "save link as file".
 
-[easy_view_bookmarkfile.scm](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/easy_view_bookmarkfile.scm "easy_view_bookmarkfile.scm")
-[README.md](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/README.md "README.md")
+&nbsp;&nbsp;&nbsp;&nbsp;[easy_view_bookmarkfile.scm](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/easy_view_bookmarkfile.scm "easy_view_bookmarkfile.scm")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[README.md](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/README.md "README.md")<br>
 
