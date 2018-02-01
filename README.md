@@ -18,8 +18,8 @@ README
     if OS is Windows, launch the Command Prompt,
     and enter the command as follows:
             gosh  easy_view_bookmarkfile.scm  input-bookmark-html-file
-    if OS is Windows10, please check the method of launch the Command Prompt
-    by the internet.
+    if OS is Windows10, please web search the method of launch 
+    the Command Prompt.
 
 #### VERSION
     0.9.0
@@ -35,4 +35,10 @@ README
     Copyright (c) 2018 Hidetomo Tanaka
     Released under the MIT license
     http://opensource.org/licenses/mit-license.php
+
+
+#### HOW TO DOWNLOAD PROGRAM
+    right click the link below, select "save link as file".
+    [easy_view_bookmarkfile.scm](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/easy_view_bookmarkfile.scm "easy_view_bookmarkfile.scm")
+    [README.md](https://raw.githubusercontent.com/HidetomoT/easy_view_bookmarkfile/master/README.md "README.md")
 
