@@ -30,6 +30,7 @@ README
 
       Gauche also runs on Windows with MinGW.
       Gauche runs using MinGW.
+          http://www.mingw.org/
 
 #### LICENSE 
     Copyright (c) 2018 Hidetomo Tanaka
