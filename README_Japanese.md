@@ -63,15 +63,19 @@ README_JAPANESE
 ## 説明（２）
 
 #### easy_view_bookmarkfile.scmの もう少し詳しいインストールの解説
-* 「 [vine-users:082939] ブックマークのHTMLファイルを見やすくするソフト 
+<pre>
+   「 [vine-users:082939] ブックマークのHTMLファイルを見やすくするソフト 
                                      ／ プログラミング言語 Gauche、Schemeの話」
+</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[http://ml.vinelinux.org/vine-users/msg32864.html](http://ml.vinelinux.org/vine-users/msg32864.html "インストールの解説")<br>
 <br><br>
 
 
 #### プログラミング言語 Gauche、Schemeの解説の話
-* 「 [vine-users:082940] Re: ブックマークのHTMLファイルを見やすくするソフト 
+<pre>
+    「 [vine-users:082940] Re: ブックマークのHTMLファイルを見やすくするソフト 
                                        ／ プログラミング言語 Gauche、Schemeの話」
+</pre>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[http://ml.vinelinux.org/vine-users/msg32865.html](http://ml.vinelinux.org/vine-users/msg32865.html "Gauche、Schemeの解説")<br>
 <br><br><br><br>
 
