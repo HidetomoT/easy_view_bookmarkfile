@@ -21,7 +21,7 @@
 ;;      the Command Prompt.
 ;; 
 ;;  VERSION
-;;      0.9.0
+;;      0.9.1
 ;;
 ;;  REQUIREMENT
 ;;      Gauche (an implementation of the Scheme programming language)
