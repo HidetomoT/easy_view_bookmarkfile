@@ -93,7 +93,7 @@ README_JAPANESE
 * 2018/02/05  バージョン 0.9.1
 
 * 2018/02/08  バージョン 0.9.2
-
+<pre>
     次のようなエラーが出るバグを発見した。ソースの修正を行なった。
     [foo@xxxx]$ easy_view_bookmarkfile.scm bookmarks.html
     Output file name:  bookmarks_esvwbk.html
@@ -108,5 +108,7 @@ README_JAPANESE
             at "/home/foo/easy_view_bookmarkfile.scm":367
       3  (read_bookmark_file)
             at "/home/foo/easy_view_bookmarkfile.scm":404
+</pre>
+
 
 
