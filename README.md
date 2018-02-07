@@ -22,7 +22,7 @@ README
     the Command Prompt.
 
 #### VERSION
-    0.9.1
+    0.9.2
 
 #### REQUIREMENT
     Gauche (an implementation of the Scheme programming language)
