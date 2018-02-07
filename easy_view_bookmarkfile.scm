@@ -21,7 +21,7 @@
 ;;      the Command Prompt.
 ;; 
 ;;  VERSION
-;;      0.9.1
+;;      0.9.2
 ;;
 ;;  REQUIREMENT
 ;;      Gauche (an implementation of the Scheme programming language)
@@ -150,10 +150,10 @@
 	;; Add </p> after </DT>.
 	(set! line_str (regexp-replace #/<\/DT>/i  line_str  "</DT></p>") )
 	;; Delete ADD_DATE=...
-	(set! line_str (regexp-replace #/ +ADD_DATE *= *\".*\"/i
+	(set! line_str (regexp-replace #/ +ADD_DATE *= *\"[^\"]*\"/i
 				       line_str  "") )
 	;; Delete LAST_MODIFIED=...
-	(set! line_str (regexp-replace #/ +LAST_MODIFIED *= *\".*\"/i
+	(set! line_str (regexp-replace #/ +LAST_MODIFIED *= *\"[^\"]*\"/i
 				       line_str  "") )
 	;; Write the modified line to the output file.
 	(write_1line line_str)
@@ -179,18 +179,18 @@
 	;; Add </li> at the end of the line.
 	(set! line_str  (string-append line_str "</li>") )
 	;; Delete ICON_URI=...
-	(set! line_str (regexp-replace #/ +ICON_URI *= *\".*\"/i
+	(set! line_str (regexp-replace #/ +ICON_URI *= *\"[^\"]*\"/i
 				       line_str  "") )
 	;; Delete ICON=...
-	(set! line_str (regexp-replace #/ +ICON *= *\".*\"/i  line_str  "") )
+	(set! line_str (regexp-replace #/ +ICON *= *\"[^\"]*\"/i  line_str  "") )
 	;; Delete ADD_DATE=...
-	(set! line_str (regexp-replace #/ +ADD_DATE *= *\".*\"/i
+	(set! line_str (regexp-replace #/ +ADD_DATE *= *\"[^\"]*\"/i
 				       line_str  "") )
 	;; Delete LAST_MODIFIED=...
-	(set! line_str (regexp-replace #/ +LAST_MODIFIED *= *\".*\"/i
+	(set! line_str (regexp-replace #/ +LAST_MODIFIED *= *\"[^\"]*\"/i
 				       line_str  "") )
 	;; Delete LAST_VISIT=...
-	(set! line_str (regexp-replace #/ +LAST_VISIT *= *\".*\"/i
+	(set! line_str (regexp-replace #/ +LAST_VISIT *= *\"[^\"]*\"/i
 				       line_str  "") )
 	;; Write the modified line to the output file.
 	(write_1line line_str)

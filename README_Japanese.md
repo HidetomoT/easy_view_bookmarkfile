@@ -31,7 +31,7 @@ README_JAPANESE
     インターネット検索で調べてみてください。
 
 #### バージョン
-    0.9.1
+    0.9.2
 
 #### 必要な物
     Gauche (プログラミング言語 Scheme処理系の１つ)
@@ -81,5 +81,32 @@ README_JAPANESE
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [http://ml.vinelinux.org/vine-users/msg32865.html](http://ml.vinelinux.org/vine-users/msg32865.html "Gauche、Schemeの解説")<br>
 <br><br><br><br>
+
+
+
+------------------------------------------------------------------
+
+## 修正履歴
+
+* 2018/01/20  バージョン 0.9.0
+
+* 2018/02/05  バージョン 0.9.1
+
+* 2018/02/08  バージョン 0.9.2
+
+    次のようなエラーが出るバグを発見した。ソースの修正を行なった。
+    [foo@xxxx]$ easy_view_bookmarkfile.scm bookmarks.html
+    Output file name:  bookmarks_esvwbk.html
+    *** ERROR: stack overrun during matching regexp #/(?i: +icon_uri *= *".*")/
+    Stack Trace:
+    _______________________________________
+      0  (regexp-replace #/(?i: +icon_uri *= *".*")/ line_str "")
+            at "/home/foo/easy_view_bookmarkfile.scm":182
+      1  (modify_DT_A_HREF_str line_str)
+            at "/home/foo/easy_view_bookmarkfile.scm":346
+      2  (procedure_one_line line_str)
+            at "/home/foo/easy_view_bookmarkfile.scm":367
+      3  (read_bookmark_file)
+            at "/home/foo/easy_view_bookmarkfile.scm":404
 
 
